@@ -194,7 +194,7 @@ class HMongodb {
         {
             $options['multiple'] = 0;          }
         try {
-            $this->mongo->$dbname->$table_name->update($condition, $newdata, $options);
+            $this->mongo->$dbname->$table_name->update($condition,array('$set'=> $newdata), $options);
             return true;
         }
         catch (MongoCursorException $e)
