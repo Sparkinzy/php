@@ -1,0 +1,23 @@
+RewriteEngine on 
+
+# 把 yourdomain.com 改为你要绑定的域名.     
+RewriteCond %{HTTP_HOST} ^(english.)?huanqiugongying.org$     
+
+    
+# 把 subfolder 改为要绑定的目录.     
+RewriteCond %{REQUEST_URI} !^/english/     
+
+# 不要改以下两行.     
+RewriteCond %{REQUEST_FILENAME} !-f     
+RewriteCond %{REQUEST_FILENAME} !-d     
+
+    
+# 把 subfolder 改为要绑定的目录.     
+RewriteRule ^(.*)$ /english/$1     
+
+# 把 yourdomain.com 改为你要绑定的域名     
+# 把 subfolder 改为要绑定的目录.     
+# subfolder/ 后面是首页文件index.php, index.html......     
+
+RewriteCond %{HTTP_HOST} ^(english.)?huanqiugongying.org$     
+RewriteRule ^(/)?$ english/index.php [L]  
